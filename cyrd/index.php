@@ -29,12 +29,15 @@
                 header("Location: admin/dashboard.php");
                 }
                 else {
-                    header("Location student/dashboard.php");
+                    header("Location: student/dashboard.php");
                 }
                 exit;
             }
         }
-        $error = "Invalid username or password";
+        $errmsg = ['Invalid username or password','Wallahi your credentials are invalid','Ts wrong bro','CURSE OF RA 𓀀 𓀁 𓀂 𓀃 𓀄 𓀅 𓀆 𓀇 𓀈 𓀉 𓀊 𓀋 𓀌 𓀍 𓀎 𓀏 𓀐 𓀑 𓀒 𓀓 𓀔 𓀕 𓀖 𓀗 𓀘 𓀙 𓀚 𓀛 𓀜 𓀝'];
+        $randomKey = array_rand($errmsg);
+
+        $error = $errmsg[$randomKey];
     }
 ?>
 <!doctype html>

@@ -1,3 +1,15 @@
+<?php
+    session_start();
+    include "../../config/database.php";
+    if(!isset($_SESSION["role"]) || $_SESSION["role"] != "admin"){
+        header("Location:../../index.php");
+        exit;
+    }    
+    $sql = "SELECT * FROM users WHERE role = 'student' ORDER BY id DESC";
+    $result = mysqli_query($conn, $sql);
+    
+
+?>
 <!doctype html>
 <html lang="en">
 
@@ -32,7 +44,7 @@
 
             <a
                 class="navbar-brand"
-                href="dashboard.html"
+                href="../dashboard.php"
             >
                 Student Portal Admin
             </a>
@@ -49,7 +61,7 @@
             <div>
                 <h2>Student Accounts</h2>
 
-                <a href="dashboard.html">
+                <a href="../dashboard.php">
                     ← Dashboard
                 </a>
             </div>
@@ -81,15 +93,16 @@
                     <tbody>
 
                         <!-- Student Record -->
+                        <?php while ($row = mysqli_fetch_assoc($result)){?>
                         <tr>
-                            <td>2026-0001</td>
+                            <td><?php echo htmlspecialchars($row['student_no']); ?></td>
 
                             <td>
-                                Juan Dela Cruz
+                                <?php echo htmlspecialchars($row['full_name']); ?>
                             </td>
 
                             <td>
-                                juan
+                                <?php echo htmlspecialchars($row['username']); ?>
                             </td>
 
                             <td>
@@ -114,6 +127,7 @@
                                 </button>
                             </td>
                         </tr>
+                        <?php } ?>
 
                     </tbody>
 
