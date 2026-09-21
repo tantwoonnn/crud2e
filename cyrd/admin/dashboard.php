@@ -105,7 +105,7 @@
                         </h2>
 
                         <a
-                            href="subjects.html"
+                            href="subjects/index.php"
                             class="btn btn-primary btn-sm"
                         >
                             Manage Subjects

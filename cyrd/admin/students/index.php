@@ -54,7 +54,9 @@
 
     <!-- Main Content -->
     <div class="container py-4">
-
+        <?php if(isset($_GET["message"])) { ?>
+            <div class="alert alert-success"><?php echo $_GET["message"] ?></div>
+        <?php } ?>
         <!-- Header Section -->
         <div class="d-flex justify-content-between mb-3">
 
@@ -68,7 +70,7 @@
 
             <a
                 class="btn btn-primary"
-                href="student_form.html"
+                href="create.php"
             >
                 + Add Student
             </a>

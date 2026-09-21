@@ -74,7 +74,7 @@
                     </button>
 
                     <a
-                        href="subjects.html"
+                        href="index.php"
                         class="btn btn-secondary"
                     >
                         Cancel
